@@ -22,6 +22,7 @@ from CommonUtilities.config import *
 #mysql_engine = create_engine('mysql+pymysql://root:Admin%40143@localhost:3308/retaildwh')
 mysql_engine = create_engine(f'mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DATABASE}')
 
+@pytest.mark.smoke
 def test_DQ_Sales_Data_File_Availability():
     try:
         logger.info("File availability check for Sales_data.csv has been initiated.. ")
@@ -33,7 +34,7 @@ def test_DQ_Sales_Data_File_Availability():
 
 # Assignment for completing the file availability check for all the other file/types
 
-
+@pytest.mark.smoke
 def test_DQ_Sales_Data_File_SizeCheck():
     try:
         logger.info("File size check for Sales_data.csv has been initiated.. ")

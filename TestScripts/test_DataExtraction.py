@@ -63,6 +63,7 @@ def test_extraction_SRCInventory_data_to_Staging_Inventory():
     file_to_db_verify("TestData/inventory_data.xml", "staging_inventory", mysql_engine, "xml")
 
 @pytest.mark.regression
+@pytest.mark.smoke
 def test_extraction_SRCOracle_to_mySQL():
     try:
         query1 = """select * from stores"""
