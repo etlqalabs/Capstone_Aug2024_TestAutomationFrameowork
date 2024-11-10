@@ -38,7 +38,7 @@ def test_DQ_Sales_Data_File_Availability():
 def test_DQ_Sales_Data_File_SizeCheck():
     try:
         logger.info("File size check for Sales_data.csv has been initiated.. ")
-        assert check_file_size("TestData/sales_data1.csv"),"Sales_data file is zero byte file"
+        assert check_file_size("TestData/sales_data.csv"),"Sales_data file is zero byte file"
         logger.info("File size check for Sales_data.csv has been completed.. ")
     except Exception as e:
         logger.error(f"Error during file size check{e}")
