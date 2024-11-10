@@ -1,3 +1,5 @@
+import os.path
+
 import pandas as pd
 from sqlalchemy import create_engine
 import cx_Oracle
@@ -40,7 +42,20 @@ def file_to_db_verify(file_path,table_name,db_engine,file_type):
 # common function to test db to db
 def db_to_db_verify(query1,db_engine1,query2,db_engine2):
     df_expected = pd.read_sql(query1, db_engine1)
+    logger.info(f"expected data :{df_expected}")
     df_actual = pd.read_sql(query2, db_engine2)
+    logger.info(f"actual data :{df_actual}")
     assert df_actual.equals(df_expected),f"Data comparision failed"
 
+def check_file_exists(file_path):
+    if(os.path.isfile(file_path) == True):
+        return True
+    else:
+        return False
+
+def check_file_size(file_path):
+    if(os.path.getsize(file_path) != 0):
+        return True
+    else:
+        return False
 

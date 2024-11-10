@@ -1,0 +1,80 @@
+INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:27 My data extraction test cases started ...........
+INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:111 My data extraction test cases completed ...........
+INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:31 Data extrcation from sales_data.csv to staging_sales table has been initiated
+INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:33 Data extrcation from sales_data.csv to staging_sales table has been completed
+INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:42 Data extrcation test from product_data.csv to staging_product table has been initiated
+ERROR    TestScripts.test_DataExtraction:test_DataExtraction.py:46 error during data extration:[Errno 2] No such file or directory: 'TestData/product1_data.csv'
+INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:52 Data extrcation test from supplier_data.json to staging_product table has been initiated
+INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:54 Data extrcation test from supplier_data.json to staging_supplier table has been completed
+INFO     CommonUtilities.utilities:utilities.py:45 expected data :   store_id store_name
+0         1    Store A
+1         2    Store B
+2         3    Store C
+INFO     CommonUtilities.utilities:utilities.py:47 actual data :   store_id store_name
+0         1    Store A
+1         2    Store B
+2         3    Store C
+INFO     TestScripts.test_DataLoading:test_DataLoading.py:30 test_fact_sales_table_load has been initiated ....
+INFO     CommonUtilities.utilities:utilities.py:45 expected data :   count(*)
+0         5
+INFO     CommonUtilities.utilities:utilities.py:47 actual data :   count(*)
+0         5
+INFO     TestScripts.test_DataLoading:test_DataLoading.py:38 test_fact_sales_table_load has been completed ....
+INFO     TestScripts.test_DataQuality:test_DataQuality.py:27 File availability check for Sales_data.csv has been initiated.. 
+INFO     TestScripts.test_DataQuality:test_DataQuality.py:29 File availability check for Sales_data.csv has been completed.. 
+INFO     TestScripts.test_DataQuality:test_DataQuality.py:39 File size check for Sales_data.csv has been initiated.. 
+ERROR    TestScripts.test_DataQuality:test_DataQuality.py:43 Error during file size checkSales_data file is zero byte file
+assert False
+ +  where False = check_file_size('TestData/sales_data1.csv')
+INFO     TestScripts.test_DataTransformation:test_DataTransformation.py:29 Filter transfromation test has been initiated ....
+INFO     CommonUtilities.utilities:utilities.py:45 expected data :   sales_id  product_id  store_id  quantity  price   sale_date region
+0         5         105         1        12   12.0  2024-09-05   High
+1         6         106         3         8   18.0  2024-09-06    Low
+2         7         107         1         4   22.0  2024-09-07   High
+3         8         108         2         6   24.0  2024-09-08    Low
+4         9         109         3        11   19.0  2024-09-09   High
+5        10         110         4         9   17.0  2024-09-10    Low
+INFO     CommonUtilities.utilities:utilities.py:47 actual data :   sales_id  product_id  store_id  quantity  price   sale_date region
+0         5         105         1        12   12.0  2024-09-05   High
+1         6         106         3         8   18.0  2024-09-06    Low
+2         7         107         1         4   22.0  2024-09-07   High
+3         8         108         2         6   24.0  2024-09-08    Low
+4         9         109         3        11   19.0  2024-09-09   High
+5        10         110         4         9   17.0  2024-09-10    Low
+INFO     TestScripts.test_DataTransformation:test_DataTransformation.py:33 Filter transfromation test has been completed ....
+INFO     TestScripts.test_DataTransformation:test_DataTransformation.py:42 High region Router transfromation test has been initiated ....
+INFO     CommonUtilities.utilities:utilities.py:45 expected data :   sales_id  product_id  store_id  quantity  price   sale_date region
+0         5         105         1        12   12.0  2024-09-05   High
+1         7         107         1         4   22.0  2024-09-07   High
+2         9         109         3        11   19.0  2024-09-09   High
+INFO     CommonUtilities.utilities:utilities.py:47 actual data :   sales_id  product_id  store_id  quantity  price   sale_date region
+0         5         105         1        12   12.0  2024-09-05   High
+1         7         107         1         4   22.0  2024-09-07   High
+2         9         109         3        11   19.0  2024-09-09   High
+INFO     TestScripts.test_DataTransformation:test_DataTransformation.py:46 High region Router transfromation test has been completed ....
+INFO     TestScripts.test_DataTransformation:test_DataTransformation.py:59 Low region Router transfromation test has been initiated ....
+INFO     CommonUtilities.utilities:utilities.py:45 expected data :   sales_id  product_id  store_id  quantity  price   sale_date region
+0         6         106         3         8   18.0  2024-09-06    Low
+1         8         108         2         6   24.0  2024-09-08    Low
+2        10         110         4         9   17.0  2024-09-10    Low
+INFO     CommonUtilities.utilities:utilities.py:47 actual data :   sales_id  product_id  store_id  quantity  price   sale_date region
+0         6         106         3         8   18.0  2024-09-06    Low
+1         8         108         2         6   24.0  2024-09-08    Low
+2        10         110         4         9   17.0  2024-09-10    Low
+INFO     TestScripts.test_DataTransformation:test_DataTransformation.py:63 Low region Router transfromation test has been completed ....
+INFO     TestScripts.test_DataTransformation:test_DataTransformation.py:72 test_aggregate_Sales_data_transfromation_test has been initiated ....
+INFO     CommonUtilities.utilities:utilities.py:45 expected data :   product_id  month  year  total_sales
+0         105      9  2024        144.0
+1         106      9  2024        144.0
+2         107      9  2024         88.0
+3         108      9  2024        144.0
+4         109      9  2024        209.0
+5         110      9  2024        153.0
+INFO     CommonUtilities.utilities:utilities.py:47 actual data :   product_id  month  year  total_sales
+0         105      9  2024        144.0
+1         106      9  2024        144.0
+2         107      9  2024         88.0
+3         108      9  2024        144.0
+4         109      9  2024        209.0
+5         110      9  2024        153.0
+INFO     TestScripts.test_DataTransformation:test_DataTransformation.py:84 test_aggregate_Sales_data_transfromation_test has been completed ....

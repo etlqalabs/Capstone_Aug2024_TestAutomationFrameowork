@@ -27,19 +27,36 @@ oracle_engine = create_engine(f'oracle+cx_oracle://{ORACLE_USER}:{ORACLE_PASSWOR
 logger.info("My data extraction test cases started ...........")
 @pytest.mark.smoke
 def test_extraction_SRC_sales_data_to_Staging_sales():
-    logger.info("Data extrcation from sales_data.csv to staging_sales table has been initiated")
-    file_to_db_verify("TestData/sales_data.csv","staging_sales", mysql_engine, "csv")
-    logger.info("Data extrcation from sales_data.csv to staging_sales table has been completed")
+    try:
+        logger.info("Data extrcation from sales_data.csv to staging_sales table has been initiated")
+        file_to_db_verify("TestData/sales_data.csv","staging_sales", mysql_engine, "csv")
+        logger.info("Data extrcation from sales_data.csv to staging_sales table has been completed")
+    except Exception as e:
+        logger.error(f"error during data extration:{e}")
+        pytest.fail(f"Test failed due to an error:{e}")
+
 
 @pytest.mark.smoke
 def test_extraction_SRCProduct_data_to_Staging_products():
-    logger.info("Data extrcation from product_data.csv to staging_product table has been initiated")
-    file_to_db_verify("TestData/product_data.csv","staging_product", mysql_engine, "csv")
-    logger.info("Data extrcation from product_data.csv to staging_product table has been completed")
+    try:
+        logger.info("Data extrcation test from product_data.csv to staging_product table has been initiated")
+        file_to_db_verify("TestData/product1_data.csv","staging_product", mysql_engine, "csv")
+        logger.info("Data extrcation test from product_data.csv to staging_product table has been completed")
+    except Exception as e:
+        logger.error(f"error during data extration:{e}")
+        pytest.fail(f"Test failed due to an error:{e}")
 
 @pytest.mark.regression
 def test_extraction_SRCSupplier_data_to_Staging_Supplier():
-    file_to_db_verify("TestData/supplier_data.json", "staging_supplier", mysql_engine, "json")
+    try:
+        logger.info("Data extrcation test from supplier_data.json to staging_product table has been initiated")
+        file_to_db_verify("TestData/supplier_data.json", "staging_supplier", mysql_engine, "json")
+        logger.info("Data extrcation test from supplier_data.json to staging_supplier table has been completed")
+    except Exception as e:
+        logger.error(f"error during data extration:{e}")
+        pytest.fail(f"Test failed due to an error:{e}")
+
+
 
 @pytest.mark.regression
 def test_extraction_SRCInventory_data_to_Staging_Inventory():
@@ -47,9 +64,13 @@ def test_extraction_SRCInventory_data_to_Staging_Inventory():
 
 @pytest.mark.regression
 def test_extraction_SRCOracle_to_mySQL():
-    query1 ="""select * from stores"""
-    query2 = """select * from staging_stores"""
-    db_to_db_verify(query1,oracle_engine,query2,mysql_engine)
+    try:
+        query1 = """select * from stores"""
+        query2 = """select * from staging_stores"""
+        db_to_db_verify(query1, oracle_engine, query2, mysql_engine)
+    except Exception as e:
+        logger.error(f"error during data extration:{e}")
+        pytest.fail(f"Test failed due to an error:{e}")
 
 
 
