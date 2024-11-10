@@ -1,3 +1,11 @@
+'''
+    Assignment:
+    complete 2 other test cases here
+    1. Aggergate transformation test case for inventory
+    2. Joiner transformation test case
+
+'''
+
 import pandas as pd
 from sqlalchemy import create_engine
 import cx_Oracle
@@ -85,11 +93,3 @@ def test_aggregate_Sales_data_transfromation_test():
         except Exception as e:
             logger.error(f"error during data extration:{e}")
             pytest.fail(f"Test failed due to an error:{e}")
-
-'''
-    Assignment:
-    complete 2 other test cases here 
-    1. Aggergate transformation test case for inventory
-    2. Joiner transformation test case 
-    
-'''

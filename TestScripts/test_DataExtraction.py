@@ -1,3 +1,8 @@
+# assignment:
+# complete all the exception handling for all the test case
+
+
+
 import pandas as pd
 from sqlalchemy import create_engine
 import cx_Oracle

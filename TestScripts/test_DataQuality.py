@@ -1,3 +1,6 @@
+
+# Assignment for completing the file size check for all the other file/types
+
 import pandas as pd
 from sqlalchemy import create_engine
 import cx_Oracle
@@ -44,4 +47,3 @@ def test_DQ_Sales_Data_File_SizeCheck():
         logger.error(f"Error during file size check{e}")
         pytest.fail(f"Test failed due to sales_data.csv due to zero byte file")
 
-# Assignment for completing the file size check for all the other file/types

@@ -1,3 +1,13 @@
+'''
+ 1. Assignment to omplete all the other 3 target load test cases
+
+2. Jenkins assignment:
+a. create one jenkins job for dev etl job
+b. another one for smoke test job
+c. in the smoke test job , try to configure the condition such that if my dev etl jon
+succeeds then smoke test job should automatically trigger
+
+'''
 import pandas as pd
 from sqlalchemy import create_engine
 import cx_Oracle
@@ -65,4 +75,4 @@ def test_fact_sales_table_load():
         logger.error(f"error during data extration:{e}")
         pytest.fail(f"Test failed due to an error:{e}")
 
-     # Assignment to omplete all the other 3 target load test cases
+

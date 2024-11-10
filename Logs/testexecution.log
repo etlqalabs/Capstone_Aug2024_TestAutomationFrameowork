@@ -1,9 +1,7 @@
 INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:27 My data extraction test cases started ...........
 INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:112 My data extraction test cases completed ...........
-INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:31 Data extrcation from sales_data.csv to staging_sales table has been initiated
-INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:33 Data extrcation from sales_data.csv to staging_sales table has been completed
-INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:42 Data extrcation test from product_data.csv to staging_product table has been initiated
-ERROR    TestScripts.test_DataExtraction:test_DataExtraction.py:46 error during data extration:[Errno 2] No such file or directory: 'TestData/product1_data.csv'
+INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:52 Data extrcation test from supplier_data.json to staging_product table has been initiated
+INFO     TestScripts.test_DataExtraction:test_DataExtraction.py:54 Data extrcation test from supplier_data.json to staging_supplier table has been completed
 INFO     CommonUtilities.utilities:utilities.py:45 expected data :   store_id store_name
 0         1    Store A
 1         2    Store B
@@ -12,9 +10,3 @@ INFO     CommonUtilities.utilities:utilities.py:47 actual data :   store_id stor
 0         1    Store A
 1         2    Store B
 2         3    Store C
-INFO     TestScripts.test_DataQuality:test_DataQuality.py:28 File availability check for Sales_data.csv has been initiated.. 
-INFO     TestScripts.test_DataQuality:test_DataQuality.py:30 File availability check for Sales_data.csv has been completed.. 
-INFO     TestScripts.test_DataQuality:test_DataQuality.py:40 File size check for Sales_data.csv has been initiated.. 
-ERROR    TestScripts.test_DataQuality:test_DataQuality.py:44 Error during file size checkSales_data file is zero byte file
-assert False
- +  where False = check_file_size('TestData/sales_data1.csv')
